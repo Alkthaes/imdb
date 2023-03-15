@@ -1,21 +1,11 @@
 import React from 'react';
+import Card from './Card';
 
 export default function Results({ results }) {
   return (
-    <div>
+    <div className='sm:grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 max-w-6xl mx-auto py-4'>
       {results.map((result) => {
-        return (
-          <div key={result.id}>
-            <h1>{result.title || result.name}</h1>
-            <p>{result.overview}</p>
-            <img
-              src={`https://image.tmdb.org/t/p/original/${
-                result.backdrop_path || result.poster_path
-              }`}
-              alt={result.title || result.name}
-            />
-          </div>
-        );
+        return <Card key={result.id} result={result} />;
       })}
     </div>
   );
